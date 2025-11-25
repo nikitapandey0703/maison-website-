@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import img from "../assets/images/logo-light.png";
 import { RxCross1 } from "react-icons/rx";
@@ -9,80 +9,84 @@ import img3 from "../assets/images/sideArea-3.jpg";
 import img4 from "../assets/images/sideArea-4.jpg";
 
 const SideNavBar = ({ showSideBar, toggleSideBar }) => {
-  const Slider1 = [
-    { index: 1, img: img1 },
-    { index: 1, img: img2 },
-    { index: 1, img: img3 },
-    { index: 1, img: img4 },
+  const SliderImages = [img1, img2, img3, img4];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // ⭐ Navigation Menu with paths
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "OurServices", path: "/our-services" },
+    { name: "About us", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Testimonial", path: "/testimonial" },
   ];
 
   return (
     <div
-      className={`flex absolute right-0 top-0 transition-transform duration-500 ease-in-out  ${
+      className={`fixed top-0 right-0 h-screen w-[35vw] min-w-[320px] bg-[rgb(24,24,24)] text-[#bcbbbbc9] transition-transform duration-500 ease-in-out z-50 shadow-2xl ${
         showSideBar ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="bg-[rgb(24,24,24)] h-screen w-[35vw] relative">
-        <div
-          className="absolute right-10 top-12 text-[#666666e0] cursor-pointer"
-          onClick={toggleSideBar}
-        >
-          <RxCross1 className="h-6 w-6" />
-        </div>
-
-        <div>
-          <NavLink>
-            <img src={img} className="h-6 pl-20 absolute top-30" />
-          </NavLink>
-        </div>
-
-        <div>
-          <ul className="flex flex-col absolute top-50 pl-16 text-[13px] gap-2 tracking-wider text-[#bcbbbbc9]">
-            <a href="#">
-              <li className="hover:translate-x-2.5 transition-all duration-500 ease-in-out">
-                <span className="inline-block opacity-0 hover:opacity-100">
-                  <FaArrowRight />
-                </span>
-                Home
-              </li>
-            </a>
-            <a href="#">
-              <li className="hover:translate-x-2.5 transition-all duration-500 ease-in-out">
-                <span className="inline-block opacity-0 hover:opacity-100">
-                  <FaArrowRight />
-                </span>
-                Pages
-              </li>
-            </a>
-            <a href="#">
-              <li className="hover:translate-x-2.5 transition-all duration-500 ease-in-out">
-                <span className="inline-block opacity-0 hover:opacity-100">
-                  <FaArrowRight />
-                </span>
-                Blogs
-              </li>
-            </a>
-            <a href="#">
-              <li className="hover:translate-x-2.5 transition-all duration-500 ease-in-out">
-                <span className="inline-block opacity-0 hover:opacity-100">
-                  <FaArrowRight />
-                </span>
-                Contact
-              </li>
-            </a>
-          </ul>
-        </div>
-
-        {/* <hr className="text-[#bcbbbbc9] absolute top-80 right-0 w-7xl" /> */}
+      <div
+        className="absolute right-6 top-6 text-[#999] cursor-pointer hover:text-white transition"
+        onClick={toggleSideBar}
+      >
+        <RxCross1 className="h-6 w-6" />
       </div>
 
-      <div className="absolute top-100 pl-20 flex w-auto h-[200px] overflow-hidden">
-        <img src={img1} alt="img1" />
-        {/* {Slider1.map((item) => (
-          <div key={item.index}>
-            <img src={item.img} className="w-full h-full shrink-0" />
-          </div>
-        ))} */}
+      <div className="mt-14 pl-12">
+        <NavLink to="/">
+          <img src={img} alt="Logo" className="h-6" />
+        </NavLink>
+      </div>
+
+      {/* ⭐ Menu With Navigation */}
+      <ul className="mt-12 flex flex-col gap-5 pl-12 text-sm font-medium tracking-wider">
+        {menuItems.map((item, i) => (
+          <NavLink
+            key={i}
+            to={item.path}
+            onClick={toggleSideBar}
+            className="group flex items-center gap-3 cursor-pointer hover:translate-x-2 transition-all duration-300"
+          >
+            <span className="opacity-0 group-hover:opacity-100 transition">
+              <FaArrowRight size={12} />
+            </span>
+            <span className="group-hover:text-white transition">
+              {item.name}
+            </span>
+          </NavLink>
+        ))}
+      </ul>
+
+      <div className="mt-12 px-12">
+        <div className="w-80 h-48 overflow-hidden border border-[#333]">
+          <img
+            src={SliderImages[activeIndex]}
+            alt={`Slide-${activeIndex}`}
+            className="w-full h-full object-cover transition-all duration-700"
+          />
+        </div>
+
+        <div className="flex justify-center gap-4 mt-4">
+          {SliderImages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`w-6 h-6 rounded-full border text-xs font-semibold transition-all duration-300 ${
+                activeIndex === i
+                  ? "bg-white text-black border-white"
+                  : "border-[#666] text-[#999] hover:bg-[#444]"
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute bottom-6 left-0 w-full text-center text-xs text-[#777]">
+        © 2025 Your Company. All rights reserved.
       </div>
     </div>
   );
