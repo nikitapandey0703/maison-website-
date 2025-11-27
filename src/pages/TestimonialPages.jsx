@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 // import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import AnimatedCircularCounters from '../components/AnimatedCircularCounters ';
+import PageHeader from '../components/PageHeader';
 
 
 
@@ -34,34 +35,12 @@ const TestimonialPages = () => {
   ];
   return (
     <div>
-      <section
-        className="relative w-full h-[50vh] bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=1920')",
-        }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="text-center px-6">
-            <h4 className="text-3xl md:text-4xl font-semibold text-white tracking-wide">
-              Testimonials
-            </h4>
-
-            <p className="text-gray-200 mt-2 text-base md:text-lg">
-              We always design for you
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader title={"Testimonials"} discription={"We always design for you"} />
 
       <section className="w-full py-24 bg-white flex flex-col items-center">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold text-gray-900 tracking-wide">
+          <h2 className="text-black text-2xl sm:text-4xl uppercase font-extrabold tracking-widest ">
             Testimonials
           </h2>
           <p className="text-gray-500">Testimonials</p>

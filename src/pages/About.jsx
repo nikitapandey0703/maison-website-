@@ -30,6 +30,7 @@ const awards = [
 const About = () => {
   return (
     <>
+
       <PageHeader title={"ABOUT US"} discription={"This is the About Page."} />
       {/* <InfoSection /> */}
       <section className="w-full">
@@ -42,16 +43,16 @@ const About = () => {
               alt="Dark and Light"
               className="w-12 h-auto"
             />
-            <h6 className="text-black text-xl font-semibold uppercase tracking-widest ">
+            <h6 className="text-black text-2xl sm:text-4xl uppercase font-extrabold tracking-widest ">
               Dark and Light
             </h6>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg  leading-8">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa.
             </p>
             <a
               href="#"
-              className="text-xs font-semibold tracking-wide text-gray-800 hover:text-black"
+              className="text-base sm:text-lg font-semibold tracking-wide text-gray-800 hover:text-black"
             >
               Read More →
             </a>
@@ -64,16 +65,16 @@ const About = () => {
               alt="Fully Responsive"
               className="w-12 h-auto"
             />
-            <h6 className="text-black text-xl font-semibold uppercase tracking-widest ">
+            <h6 className="text-black text-2xl sm:text-4xl uppercase font-extrabold tracking-widest  ">
               Fully Responsive
             </h6>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg  leading-8">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa.
             </p>
             <a
               href="#"
-              className="text-xs font-semibold tracking-wide text-gray-800 hover:text-black"
+              className="text-base sm:text-lg font-semibold tracking-wide text-gray-800 hover:text-black"
             >
               Read More →
             </a>
@@ -86,16 +87,16 @@ const About = () => {
               alt="500+ UI Components"
               className="w-7 h-auto"
             />
-            <h6 className="text-black text-xl font-semibold uppercase tracking-widest ">
+            <h6 className="text-black text-2xl sm:text-4xl uppercase font-extrabold tracking-widest  ">
               500+ UI Components
             </h6>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg  leading-8">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa.
             </p>
             <a
               href="#"
-              className="text-xs font-semibold tracking-wide text-gray-800 hover:text-black"
+              className="text-base sm:text-lg font-semibold tracking-wide text-gray-800 hover:text-black"
             >
               Read More →
             </a>
@@ -113,7 +114,7 @@ const About = () => {
                   alt="Award"
                   className="w-32 h-auto"
                 />
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                   Lorem ipsum dolor sit amet, consectetur adipiscing el, sed do
                   eiusmod tempor incididunt ut labore et dolore.
                 </p>
@@ -125,7 +126,7 @@ const About = () => {
                   alt="Award"
                   className="w-32 h-auto"
                 />
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                   Lorem ipsum dolor sit amet, consectetur adipiscing el, sed do
                   eiusmod tempor incididunt ut labore et dolore.
                 </p>
@@ -137,7 +138,7 @@ const About = () => {
                   alt="Award"
                   className="w-32 h-auto"
                 />
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                   Lorem ipsum dolor sit amet, consectetur adipiscing el, sed do
                   eiusmod tempor incididunt ut labore et dolore.
                 </p>
@@ -149,7 +150,7 @@ const About = () => {
               <img
                 src="https://maison.qodeinteractive.com/wp-content/uploads/2017/03/h6-img-2.jpg"
                 alt="Award Ceremony"
-                className="rounded-lg shadow-lg"
+                className="w-full rounded-xl shadow-lg object-cover hover:scale-105 transition-transform duration-500"
               />
               <a
                 href="https://vimeo.com/99091504"
@@ -168,10 +169,10 @@ const About = () => {
       <section className="w-full">
         {/* Section Header */}
         <div className="text-center py-10 text-black max-w-2xl mx-auto mb-16">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-wide uppercase mb-4">
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-wide uppercase mb-4">
             Other Amazing Features
           </h2>
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
             nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat.
           </p>
@@ -181,11 +182,11 @@ const About = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-0 mb-16">
           {/* Member 1 */}
           <div className="text-center">
-            <div className="overflow-hidden group">
+            <div className=" group">
               <img
                 src="https://maison.qodeinteractive.com/wp-content/uploads/2017/04/p8-team-1.jpg"
                 alt="MARLENE PIERCE"
-                className="w-full h- object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full rounded-xl object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <h3 className="mt-6 text-base font-bold tracking-wider">
@@ -196,11 +197,11 @@ const About = () => {
 
           {/* Member 2 */}
           <div className="text-center">
-            <div className="overflow-hidden group">
+            <div className=" group">
               <img
                 src="https://maison.qodeinteractive.com/wp-content/uploads/2017/04/p8-team-2-300x202.jpg"
                 alt="LINNET WATT"
-                className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full rounded-xl object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <h3 className="mt-6 text-base font-bold tracking-wider">
@@ -211,11 +212,11 @@ const About = () => {
 
           {/* Member 3 */}
           <div className="text-center">
-            <div className="overflow-hidden group">
+            <div className=" group">
               <img
                 src="https://maison.qodeinteractive.com/wp-content/uploads/2017/04/p8-team-3-300x202.jpg"
                 alt="ELIOTT CORWIN"
-                className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full rounded-xl object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <h3 className="mt-6 text-base font-bold tracking-wider">

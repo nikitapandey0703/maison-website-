@@ -26,7 +26,7 @@ function App() {
 
     setTimeout(() => {
       setShowHomeAnimation(false);
-    }, 1500); // home intro animation duration
+    }, 100); // home intro animation duration
   };
 
   // Check if current page is home
@@ -34,15 +34,17 @@ function App() {
 
   return (
     <>
+    <div className="">
       {/* 1️⃣ Loader */}
       {loading && <Loader onFinish={handleLoaderFinish} />}
 
       {/* 2️⃣ Home animation (no navbar/basicDetail here) */}
-      {!loading && showHomeAnimation && (
+      {/* {!loading && showHomeAnimation && (
         <div className="page-enter">
           <Home />
         </div>
-      )}
+      )} */}
+      <div className="h-fit">
 
       {/* 3️⃣ Full Website */}
       {!loading && !showHomeAnimation && (
@@ -51,10 +53,12 @@ function App() {
           {isHome && <BasicDetail />}
 
           {/* ⭐ Navbar always visible after loader */}
-          <NavBar />
+          <div className="absolute mt-3 z-50 w-full left-0">
+            <NavBar />
+          </div>
 
           {/* Website Pages */}
-          <div className="overflow-hidden pt-16">
+          <div className="overflow-hidden">
             {/* pt-16 ensures page content does not sit under navbar */}
             <Routes>
               <Route path="/" element={<Home />} />
@@ -68,6 +72,8 @@ function App() {
           </div>
         </>
       )}
+      </div>
+    </div>
     </>
   );
 }

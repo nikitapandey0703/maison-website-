@@ -59,8 +59,8 @@ const SideNavBar = ({ showSideBar, toggleSideBar }) => {
         ))}
       </ul>
 
-      <div className="mt-12 px-12">
-        <div className="w-80 h-48 overflow-hidden border border-[#333]">
+      <div className="mt-12 flex justify-center items-center flex-col">
+        <div className="w-75 h-48 overflow-hidden border border-[#333]">
           <img
             src={SliderImages[activeIndex]}
             alt={`Slide-${activeIndex}`}
@@ -68,7 +68,7 @@ const SideNavBar = ({ showSideBar, toggleSideBar }) => {
           />
         </div>
 
-        <div className="flex justify-center gap-4 mt-4">
+        <div className="flex justify-center gap-4 mt-4 ">
           {SliderImages.map((_, i) => (
             <button
               key={i}

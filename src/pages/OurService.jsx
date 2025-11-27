@@ -33,65 +33,134 @@ const OurService = () => {
 
   return (
     <div>
+
       <PageHeader
         title="OUR SERVICES"
         discription="These are some services provided by us"
       />
       <section className="flex items-center justify-center px-6 py-16">
         <div className="max-w-4xl text-center">
-          <h3 className="text-4xl font-semibold">Other Amazing Features</h3>
+          <h3 className="text-2xl sm:text-4xl uppercase font-extrabold">Other Amazing Features</h3>
 
-          <p className="text-gray-600 text-lg leading-8 font-light mt-6">
+          <p className="text-gray-600 text-base sm:text-lg leading-8 mt-6">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat.
           </p>
         </div>
       </section>
 
-      <section className="w-full min-h-screen bg-white flex items-center justify-center p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl w-full">
-          {images.map((item, index) => (
+      <section className="w-full bg-white flex items-center justify-center p-6">
+        {/* Bento Grid */}
+        <div className="max-w-5xl w-full">
+          {/* Desktop & Tablet: Custom Bento Grid */}
+          <div
+            className="hidden sm:grid gap-6"
+            style={{
+              gridTemplateColumns: "repeat(6, 1fr)",
+              gridTemplateRows: "repeat(3, 160px)"
+            }}
+          >
+            {/* Large cell */}
             <div
-              key={index}
-              className="
-              group 
-              relative overflow-hidden rounded-xl 
-              shadow-md hover:shadow-2xl 
-              transition-all duration-500
-            "
+              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              style={{ gridColumn: "1/4", gridRow: "1/3" }}
             >
               <img
-                src={item.src}
-                alt="grid"
-                className="
-                w-full h-64 object-cover
-                transform transition-all duration-700 
-                group-hover:scale-110 group-hover:rotate-1
-              "
+                src={images[0]?.src}
+                alt="bento-1"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110config -g"
               />
-
-              {/* Hover overlay */}
-              <div
-                className="
-                absolute inset-0 bg-black/0 
-                group-hover:bg-black/20 
-                transition-all duration-500
-              "
-              ></div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
             </div>
-          ))}
+            {/* Top-right small cell */}
+            <div
+              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              style={{ gridColumn: "4/7", gridRow: "1/2" }}
+            >
+              <img
+                src={images[1 % images.length].src}
+                alt="bento-2"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110config -g"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            </div>
+            {/* Middle-right cell */}
+            <div
+              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              style={{ gridColumn: "4/6", gridRow: "2/3" }}
+            >
+              <img
+                src={images[2 % images.length].src}
+                alt="bento-3"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110config -g"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            </div>
+            {/* Tall right-most cell */}
+            <div
+              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              style={{ gridColumn: "6/7", gridRow: "2/4" }}
+            >
+              <img
+                src={images[3 % images.length].src}
+                alt="bento-4"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110config -g"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            </div>
+            {/* Bottom-left cell */}
+            <div
+              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              style={{ gridColumn: "1/3", gridRow: "3/4" }}
+            >
+              <img
+                src={images[0 % images.length].src}
+                alt="bento-5"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110config -g"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            </div>
+            {/* Bottom-middle cell */}
+            <div
+              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              style={{ gridColumn: "3/6", gridRow: "3/4" }}
+            >
+              <img
+                src={images[1 % images.length].src}
+                alt="bento-6"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110config -g"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            </div>
+          </div>
+          {/* Mobile: Show images one below another */}
+          <div className="flex flex-col gap-4 sm:hidden w-full">
+            {Array.from({ length: 6 }).map((_, idx) => (
+              <div
+                key={idx}
+                className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500"
+              >
+                <img
+                  src={images[idx % images.length].src}
+                  alt={`bento-mobile-${idx + 1}`}
+                  className="w-full h-40 object-cover transform transition-all duration-700 group-hover:scale-110config -g"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="bg-[#f5f5f5] py-20 min-h-dvh px-6">
+      <section className="bg-[#f5f5f5] py-20 px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12">
           {/* COLUMN 1 */}
           <div>
-            <h5 className="text-xl font-semibold leading-snug">
+            <h5 className="text-2xl font-semibold leading-snug">
               At vero et essent eam everti qui et iusto tale
             </h5>
 
-            <p className="text-[14px] leading-[27px] text-gray-600 mt-6">
+            <p className="text-base sm:text-lg leading-[27px] text-gray-600 mt-6">
               Sed ut perspiciatis unde omnis iste natus error sit totam
               voluptatem accusantium doloremque laudantium, totam rem aperiam,
               eaque ipsa quae ab illo inventore.
@@ -101,7 +170,7 @@ const OurService = () => {
               {listItems.map((text, i) => (
                 <div key={i} className="flex items-start">
                   <Check size={15} className="text-black mt-1" />
-                  <p className="text-[14px] text-gray-700 ml-4">{text}</p>
+                  <p className="text-base sm:text-lg text-gray-700 ml-4">{text}</p>
                 </div>
               ))}
             </div>
@@ -109,11 +178,11 @@ const OurService = () => {
 
           {/* COLUMN 2 (same content) */}
           <div>
-            <h5 className="text-xl font-semibold leading-snug">
+            <h5 className="text-2xl font-semibold leading-snug">
               At vero et essent eam everti qui et iusto tale
             </h5>
 
-            <p className="text-[14px] leading-[27px] text-gray-600 mt-6">
+            <p className="text-base sm:text-lg leading-[27px] text-gray-600 mt-6">
               Sed ut perspiciatis unde omnis iste natus error sit totam
               voluptatem accusantium doloremque laudantium, totam rem aperiam,
               eaque ipsa quae ab illo inventore.
@@ -123,7 +192,7 @@ const OurService = () => {
               {listItems.map((text, i) => (
                 <div key={i} className="flex items-start">
                   <Check size={15} className="text-black mt-1" />
-                  <p className="text-[14px] text-gray-700 ml-4">{text}</p>
+                  <p className="text-base sm:text-lg text-gray-700 ml-4">{text}</p>
                 </div>
               ))}
             </div>
@@ -131,17 +200,17 @@ const OurService = () => {
 
           {/* COLUMN 3 */}
           <div>
-            <h5 className="text-xl font-semibold leading-snug">
+            <h5 className="text-2xl font-semibold leading-snug">
               At vero et essent eam everti qui et iusto tale
             </h5>
 
-            <p className="text-[14px] leading-[27px] text-gray-600 mt-6">
+            <p className="text-base sm:text-lg leading-[27px] text-gray-600 mt-6">
               Sed ut perspiciatis unde omnis iste natus error sit totam
               voluptatem accusantium doloremque laudantium, totam rem aperiam,
               eaque ipsa quae ab illo inventore.
             </p>
 
-            <p className="text-[14px] text-gray-800 mt-4">
+            <p className="text-base sm:text-lg text-gray-800 mt-4">
               Veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               Nemo enim ipsam voluptatem:
             </p>

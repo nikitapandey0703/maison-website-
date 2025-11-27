@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import img from "../assets/images/logo-light.png";
 import { Link, NavLink } from "react-router-dom";
-import HomeDropDown from "./HomeDropDown";
 import SideNavBar from "./SideNavBar";
 
 const NavBar = () => {
-  const [isOpen, setDropDown] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
   const [active, setActive] = useState("/");
 
@@ -15,7 +13,7 @@ const NavBar = () => {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="w-full relative z-20 text-white bg-transparent">
+      <nav className="w-full relative z-20 text-black  bg-transparent">
         <div className="flex items-center justify-between px-6 md:px-20 py-3">
 
           {/* LOGO */}
@@ -30,28 +28,16 @@ const NavBar = () => {
           {/* DESKTOP MENU */}
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
 
-            {/* HOME + DROPDOWN */}
-            <div
-              className="relative"
-              onMouseEnter={() => setDropDown(true)}
-              onMouseLeave={() => setDropDown(false)}
+            {/* HOME */}
+            <NavLink
+              to="/"
+              onClick={() => setActive("/")}
+              className={`transition-all duration-300 hover:text-white ${
+                active === "/" ? "text-white font-bold" : "text-white/70"
+              }`}
             >
-              <NavLink
-                to="/"
-                onClick={() => setActive("/")}
-                className={`transition-all duration-300 hover:text-white ${
-                  active === "/" ? "text-white font-bold" : "text-white/70"
-                }`}
-              >
-                HOME
-              </NavLink>
-
-              {isOpen && (
-                <div className="absolute top-7 left-0 bg-white text-black shadow-xl rounded-xl p-4 animate-fadeIn">
-                  <HomeDropDown />
-                </div>
-              )}
-            </div>
+              HOME
+            </NavLink>
 
             <NavLink
               to="/our-services"
@@ -106,7 +92,7 @@ const NavBar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleSideBar}
-              className="text-3xl hover:text-white transition-all duration-300"
+              className="text-3xl text-white hover:text-white transition-all duration-300"
             >
               <IoMenu />
             </button>

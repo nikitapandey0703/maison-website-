@@ -49,9 +49,9 @@ export default function ContactPage() {
       ======================= */}
       <section className="flex items-center justify-center px-6 py-16">
         <div className="max-w-4xl text-center">
-          <h3 className="text-4xl font-semibold">Other Amazing Features</h3>
+          <h3 className="text-black text-2xl sm:text-4xl uppercase font-extrabold tracking-widest ">Other Amazing Features</h3>
 
-          <p className="text-gray-600 text-lg leading-8 font-light mt-6">
+          <p className="text-gray-600 text-base sm:text-lg leading-8 mt-6">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat.
           </p>

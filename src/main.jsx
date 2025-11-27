@@ -5,10 +5,9 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import SideNavBar from "./components/SideNavBar.jsx"
 createRoot(document.getElementById('root')).render(
- <BrowserRouter>
- <StrictMode>
-    <App />
-    
-  </StrictMode>,
- </BrowserRouter>
+  <BrowserRouter>
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </BrowserRouter>
 )

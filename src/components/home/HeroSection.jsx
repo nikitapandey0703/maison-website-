@@ -45,7 +45,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden">
 
       {/* SLIDES */}
       {slides.map((item, index) => (
@@ -77,9 +77,12 @@ const HeroSection = () => {
               </p>
 
               {/* Button */}
-              <button className="mt-8 px-10 py-4 bg-white text-black text-xs md:text-sm font-bold rounded-full shadow-lg hover:bg-[#f0f0f0] hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fadeUp delay-500">
+              <button className="mt-8 rounded-full bg-white text-black text-xs md:text-sm font-bold px-8 py-3 shadow-lg transition-all duration-300 hover:bg-[#f0f0f0] hover:scale-105 hover:shadow-xl">
                 PURCHASE NOW
               </button>
+              {/* <button className="px-10 py-4 bg-white text-black text-xs md:text-sm font-bold rounded-full shadow-lg hover:bg-[#f0f0f0] hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fadeUp delay-500">
+                PURCHASE NOW
+              </button> */}
             </div>
           )}
         </div>
